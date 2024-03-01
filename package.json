@@ -2,12 +2,12 @@
   "name": "react-quiz",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "type": "module"
+    "lint": "next lint"
   },
   "dependencies": {
     "better-sqlite3": "^9.4.3",
