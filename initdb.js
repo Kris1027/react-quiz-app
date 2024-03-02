@@ -1,4 +1,4 @@
-import sql from "better-sqlite3";
+const sql = require("better-sqlite3");
 const db = sql("quiz.db");
 
 const data = [
