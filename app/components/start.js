@@ -1,11 +1,13 @@
 "use client";
 
 import { useReducer } from "react";
-import { QuestionItem } from "./question-item";
+import { QuestionsList } from "./questions-list";
 
 const initialState = {
   start: false,
   currentQuestion: 1,
+  userAnswer: null,
+  points: 0,
 };
 
 const reducer = (state, action) => {
@@ -13,19 +15,26 @@ const reducer = (state, action) => {
     case "start":
       return { ...state, start: true };
     case "next":
-      return { ...state, currentQuestion: state.currentQuestion + 1 };
+      return {
+        ...state,
+        currentQuestion: state.currentQuestion + 1,
+        userAnswer: null,
+      };
+    case "newAnswer":
+      return { ...state, userAnswer: action.payload };
+    case "addPoints":
     default:
       return state;
   }
 };
 
 export function Start({ questionsData, answersData }) {
-  const [{ start, currentQuestion }, dispatch] = useReducer(
+  const [{ start, currentQuestion, userAnswer }, dispatch] = useReducer(
     reducer,
     initialState
   );
 
-  const question = questionsData[currentQuestion - 1].question;
+  const question = questionsData[currentQuestion - 1];
   const answer = answersData.filter((a) => a.question_id === currentQuestion);
 
   return (
@@ -40,11 +49,12 @@ export function Start({ questionsData, answersData }) {
         </>
       )}
       {start && (
-        <QuestionItem
+        <QuestionsList
           question={question}
           answer={answer}
           currentQuestion={currentQuestion}
           dispatch={dispatch}
+          userAnswer={userAnswer}
         />
       )}
     </div>
