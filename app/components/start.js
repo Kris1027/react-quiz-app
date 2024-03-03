@@ -1,11 +1,11 @@
 "use client";
 
 import { useReducer } from "react";
-import Question from "./questions";
+import { QuestionItem } from "./question-item";
 
 const initialState = {
   start: false,
-  currentQuestion: 0,
+  currentQuestion: 1,
 };
 
 const reducer = (state, action) => {
@@ -19,17 +19,14 @@ const reducer = (state, action) => {
   }
 };
 
-export function Start({ quizData }) {
+export function Start({ questionsData, answersData }) {
   const [{ start, currentQuestion }, dispatch] = useReducer(
     reducer,
     initialState
   );
 
-  const question = quizData[currentQuestion].question;
-  const answerA = quizData[currentQuestion].answer_a;
-  const answerB = quizData[currentQuestion].answer_b;
-  const answerC = quizData[currentQuestion].answer_c;
-  const answerD = quizData[currentQuestion].answer_d;
+  const question = questionsData[currentQuestion - 1].question;
+  const answer = answersData.filter((a) => a.question_id === currentQuestion);
 
   return (
     <div>
@@ -43,12 +40,10 @@ export function Start({ quizData }) {
         </>
       )}
       {start && (
-        <Question
+        <QuestionItem
           question={question}
-          answerA={answerA}
-          answerB={answerB}
-          answerC={answerC}
-          answerD={answerD}
+          answer={answer}
+          currentQuestion={currentQuestion}
           dispatch={dispatch}
         />
       )}
