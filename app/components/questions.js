@@ -8,11 +8,13 @@ export default function Question({
 }) {
   return (
     <div>
-      <h2>{question}</h2>
-      <p>{answerA}</p>
-      <p>{answerB}</p>
-      <p>{answerC}</p>
-      <p>{answerD}</p>
+      <h2 className="flex justify-center">{question}</h2>
+      <div className="flex flex-col">
+        <button>{answerA}</button>
+        <button>{answerB}</button>
+        <button>{answerC}</button>
+        <button>{answerD}</button>
+      </div>
       <button onClick={() => dispatch({ type: "next" })}>Next</button>
     </div>
   );
