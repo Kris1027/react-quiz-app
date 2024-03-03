@@ -5,12 +5,10 @@ const data = [
   {
     question: "What is the main purpose of ReactJS?",
     correct_option: 1,
-    points: 10,
   },
   {
     question: "Which of the following is not a core concept of ReactJS?",
     correct_option: 4,
-    points: 15,
   },
 ];
 
@@ -19,8 +17,7 @@ db.prepare(
     CREATE TABLE IF NOT EXISTS questions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         question TEXT NOT NULL,
-        correct_option INTEGER NOT NULL,
-        points INTEGER NOT NULL
+        correct_option INTEGER NOT NULL
     )
 `
 ).run();
@@ -30,8 +27,7 @@ async function initData() {
     INSERT INTO questions VALUES (
         null,
         @question,
-        @correct_option,
-        @points
+        @correct_option
     )
     `);
 

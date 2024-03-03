@@ -1,9 +1,6 @@
 import clsx from "clsx";
 
 export function QuestionsList({ question, answer, dispatch, userAnswer }) {
-  console.log(userAnswer);
-  console.log(question.correct_option);
-
   const hasAnswered = userAnswer !== null;
 
   return (
@@ -16,13 +13,13 @@ export function QuestionsList({ question, answer, dispatch, userAnswer }) {
               dispatch({ type: "newAnswer", payload: a.answer_id })
             }
             className={clsx(
-              "text-white p-2 rounded-lg hover:scale-105 bg-red-950 w-1/3",
-              a.answer_id === userAnswer ? " translate-x-10" : "",
+              "text-white p-2 rounded-lg hover:scale-105 bg-green-500 w-1/3",
+              a.answer_id === userAnswer ? "translate-x-10" : "",
               hasAnswered
                 ? a.answer_id === question.correct_option
                   ? "bg-green-500"
-                  : ""
-                : ""
+                  : "bg-red-500"
+                : "bg-red-950"
             )}
             key={a.answer_id}
             disabled={hasAnswered}

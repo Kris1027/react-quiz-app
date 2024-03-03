@@ -21,8 +21,10 @@ const reducer = (state, action) => {
         userAnswer: null,
       };
     case "newAnswer":
-      return { ...state, userAnswer: action.payload };
-    case "addPoints":
+      return {
+        ...state,
+        userAnswer: action.payload,
+      };
     default:
       return state;
   }
