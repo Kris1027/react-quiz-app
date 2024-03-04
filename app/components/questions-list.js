@@ -23,7 +23,7 @@ export function QuestionsList({
               }
             }}
             className={clsx(
-              "text-white p-2 rounded-lg hover:scale-105 bg-green-500 w-1/3",
+              "text-white p-2 rounded-lg hover:scale-105 w-1/3",
               a.answer_id === userAnswer ? "translate-x-10" : "",
               hasAnswered
                 ? a.answer_id === question.correct_option
@@ -38,7 +38,12 @@ export function QuestionsList({
           </button>
         ))}
       </div>
-      <button onClick={() => dispatch({ type: "next" })}>Next</button>
+      <button
+        onClick={() => dispatch({ type: "next" })}
+        disabled={!hasAnswered}
+      >
+        Next
+      </button>
       <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
     </>
   );
