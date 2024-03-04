@@ -56,6 +56,7 @@ export function Start({ questionsData, answersData }) {
       )}
       {start && (
         <QuestionsList
+          questionsData={questionsData}
           question={question}
           answer={answer}
           currentQuestion={currentQuestion}

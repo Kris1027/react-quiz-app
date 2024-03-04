@@ -1,6 +1,7 @@
 import clsx from "clsx";
 
 export function QuestionsList({
+  questionsData,
   question,
   answer,
   dispatch,
@@ -11,6 +12,10 @@ export function QuestionsList({
 
   return (
     <>
+      <progress value={question.id} max={questionsData.length} />
+      <p>
+        {question.id} from {questionsData.length}
+      </p>
       {points > 0 && <p>Your score: {points}</p>}
       <h2 className="text-3xl p-5">{question.question}</h2>
       <div className="flex flex-col gap-4 items-center">
