@@ -39,6 +39,7 @@ export function QuestionsList({
         ))}
       </div>
       <button onClick={() => dispatch({ type: "next" })}>Next</button>
+      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
     </>
   );
 }

@@ -27,6 +27,8 @@ const reducer = (state, action) => {
       };
     case "addPoints":
       return { ...state, points: state.points + action.payload };
+    case "reset":
+      return initialState;
     default:
       return state;
   }
