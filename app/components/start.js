@@ -8,6 +8,7 @@ const initialState = {
   currentQuestion: 1,
   userAnswer: null,
   points: 0,
+  finish: false,
 };
 
 const reducer = (state, action) => {
@@ -29,16 +30,16 @@ const reducer = (state, action) => {
       return { ...state, points: state.points + action.payload };
     case "reset":
       return initialState;
+    case "finish":
+      return { ...state, finish: true };
     default:
       return state;
   }
 };
 
 export function Start({ questionsData, answersData }) {
-  const [{ start, currentQuestion, userAnswer, points }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ start, currentQuestion, userAnswer, points, finish }, dispatch] =
+    useReducer(reducer, initialState);
 
   const question = questionsData[currentQuestion - 1];
   const answer = answersData.filter((a) => a.question_id === currentQuestion);
@@ -63,6 +64,7 @@ export function Start({ questionsData, answersData }) {
           dispatch={dispatch}
           userAnswer={userAnswer}
           points={points}
+          finish={finish}
         />
       )}
     </div>
