@@ -25,13 +25,15 @@ const reducer = (state, action) => {
         ...state,
         userAnswer: action.payload,
       };
+    case "addPoints":
+      return { ...state, points: state.points + action.payload };
     default:
       return state;
   }
 };
 
 export function Start({ questionsData, answersData }) {
-  const [{ start, currentQuestion, userAnswer }, dispatch] = useReducer(
+  const [{ start, currentQuestion, userAnswer, points }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -57,6 +59,7 @@ export function Start({ questionsData, answersData }) {
           currentQuestion={currentQuestion}
           dispatch={dispatch}
           userAnswer={userAnswer}
+          points={points}
         />
       )}
     </div>
