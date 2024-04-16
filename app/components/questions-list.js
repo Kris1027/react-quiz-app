@@ -18,14 +18,18 @@ export function QuestionsList({
   return (
     <>
       {!finish ? (
-        <>
-          <progress value={question.id} max={questionsData.length} />
-          <p>
-            {question.id} from {questionsData.length}
-          </p>
-          {points > 0 && <p>Your score: {points}</p>}
-          <h2 className="text-3xl p-5">{question.question}</h2>
-          <div className="flex flex-col gap-4 items-center">
+        <div className="w-3/5">
+          <div className="flex flex-col items-center text-cyan-100">
+            <p>
+              {question.id} from {questionsData.length}
+            </p>
+            <progress value={question.id} max={questionsData.length} />
+            <p>Your score: {points}</p>
+          </div>
+          <h2 className="text-3xl font-bold p-5 text-cyan-100">
+            {question.question}
+          </h2>
+          <div className="grid grid-rows-4 gap-10">
             {answer.map((a) => (
               <button
                 onClick={() => {
@@ -35,13 +39,16 @@ export function QuestionsList({
                   }
                 }}
                 className={clsx(
-                  "text-white p-2 rounded-lg hover:scale-105 w-1/3",
+                  "text-cyan-100 text-xl py-10 px-20 hover:scale-105 text-center border-4 rounded-lg",
+                  "shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_",
+                  a.answer_id === question.correct_option ? "#0f0" : "#f00",
+                  "]",
                   a.answer_id === userAnswer ? "translate-x-10" : "",
                   hasAnswered
                     ? a.answer_id === question.correct_option
-                      ? "bg-green-500"
-                      : "bg-red-500"
-                    : "bg-red-950"
+                      ? "border-green-500 bg-green-500 bg-opacity-25 text-green-400"
+                      : "border-red-500 bg-red-500 bg-opacity-25 text-red-400"
+                    : "border-sky-200 bg-sky-200 bg-opacity-25"
                 )}
                 key={a.answer_id}
                 disabled={hasAnswered}
@@ -50,18 +57,26 @@ export function QuestionsList({
               </button>
             ))}
           </div>
-          {!finishQuestions ? (
-            <Button
-              onClick={() => dispatch({ type: "next" })}
-              disabled={!hasAnswered}
-            >
-              Next
-            </Button>
-          ) : (
-            <Button onClick={() => dispatch({ type: "finish" })}>Finish</Button>
-          )}
-          <Button onClick={() => dispatch({ type: "reset" })}>Reset</Button>
-        </>
+          <div className="flex justify-between w-full">
+            {!finishQuestions ? (
+              <>
+                <Button
+                  onClick={() => dispatch({ type: "next" })}
+                  disabled={!hasAnswered}
+                >
+                  Next
+                </Button>
+                <Button onClick={() => dispatch({ type: "reset" })}>
+                  Reset
+                </Button>
+              </>
+            ) : (
+              <Button onClick={() => dispatch({ type: "finish" })}>
+                Finish
+              </Button>
+            )}
+          </div>
+        </div>
       ) : (
         <FinishQuiz points={points} dispatch={dispatch} />
       )}
