@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useReducer } from "react";
-import { QuestionsList } from "./questions-list";
+import { QuestionsList } from "./questionsList";
 
 import ReactImg from "@/public/react.svg";
 import { Button } from "../ui/button";
