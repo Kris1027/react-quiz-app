@@ -20,6 +20,8 @@
 - [ ] build timer
 - [ ] work with responsive for desktops and mobiles
 - [ ] refactor after all things to do to have the most readable code
+- [x] add styles for finish screen
+- [ ] in the finish screen add note depend on scores if its good or bad
 
 ## Technologies:
 

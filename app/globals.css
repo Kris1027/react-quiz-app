@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.animate-spin-slow {
+  animation: spin 15s linear infinite;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -11,6 +15,36 @@
   }
 }
 
-.animate-spin-slow {
-  animation: spin 15s linear infinite;
+.flash {
+  animation: flash 800ms ease infinite alternate;
+}
+
+@keyframes flash {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.bounce-in-right {
+  animation: bounce-in-right 1s ease;
+}
+
+@keyframes bounce-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
