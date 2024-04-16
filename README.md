@@ -11,6 +11,8 @@
 - [ ] style app layout
 - [ ] add animation via framer-motion
 - [ ] add extra polish language
+- [ ] build beautiful logo with beautiful font
+- [ ] build footer with useful links about react
 
 ## Technologies:
 
