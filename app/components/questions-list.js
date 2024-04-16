@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { FinishQuiz } from "./finishQuiz";
+import { Button } from "../ui/button";
 
 export function QuestionsList({
   questionsData,
@@ -50,16 +51,16 @@ export function QuestionsList({
             ))}
           </div>
           {!finishQuestions ? (
-            <button
+            <Button
               onClick={() => dispatch({ type: "next" })}
               disabled={!hasAnswered}
             >
               Next
-            </button>
+            </Button>
           ) : (
-            <button onClick={() => dispatch({ type: "finish" })}>Finish</button>
+            <Button onClick={() => dispatch({ type: "finish" })}>Finish</Button>
           )}
-          <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+          <Button onClick={() => dispatch({ type: "reset" })}>Reset</Button>
         </>
       ) : (
         <FinishQuiz points={points} dispatch={dispatch} />

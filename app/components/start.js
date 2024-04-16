@@ -4,6 +4,7 @@ import { useReducer } from "react";
 import { QuestionsList } from "./questions-list";
 
 import ReactImg from "@/public/react.svg";
+import { Button } from "../ui/button";
 
 const initialState = {
   start: false,
@@ -63,12 +64,7 @@ export function Start({ questionsData, answersData }) {
             Welcome in the quiz app where you can check your knowledge about
             React!
           </h2>
-          <button
-            className="text-3xl uppercase bg-cyan-100 text-cyan-950 px-10 py-2 rounded-3xl mt-10"
-            onClick={() => dispatch({ type: "start" })}
-          >
-            Start
-          </button>
+          <Button onClick={() => dispatch({ type: "start" })}>Start</Button>
         </>
       )}
       {start && (
