@@ -1,8 +1,18 @@
 # React Quiz App
 
-`live` : <https://react-quiz-app-rosy-nine.vercel.app/>
+`live` : <https://www.quiz.kris1027.pl/>
 
-## ToDo:
+## Technologies:
+
+- JavaScript
+- CSS
+- Next
+- React
+- SQLite
+- Tailwind
+- Framer Motion
+
+## List to do:
 
 - [x] animate react icon in starting page
 - [x] progress bar
@@ -21,13 +31,3 @@
 - [ ] work with responsive for desktops and mobiles
 - [ ] add 20 questions and 4 answers each question
 - [ ] refactor after all things to do to have the most readable code
-
-## Technologies:
-
-- JavaScript
-- CSS
-- Next
-- React
-- SQLite
-- Tailwind
-- Framer Motion
