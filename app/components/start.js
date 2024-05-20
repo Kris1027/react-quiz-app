@@ -52,24 +52,24 @@ export function Start({ questionsData, answersData }) {
     .reduce((acc, curr) => acc + curr, 0);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col">
       {!start && (
-        <>
+        <div className="flex flex-col items-center justify-center text-center">
           <a href="https://react.dev" target="_blank">
             <Image
               src={ReactImg}
               alt="React logo"
               className="animate-spin-slow"
-              width={400}
-              height={400}
+              width={300}
+              height={300}
             />
           </a>
-          <h2 className="text-3xl text-cyan-100 pt-20">
+          <h2 className="text-xl text-cyan-100 pt-20">
             Welcome in the quiz app where you can check your knowledge about
             React!
           </h2>
           <Button onClick={() => dispatch({ type: "start" })}>Start</Button>
-        </>
+        </div>
       )}
       {start && (
         <QuestionsList

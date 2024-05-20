@@ -19,8 +19,8 @@ export function QuestionsList({
   return (
     <>
       {!finish ? (
-        <div className="w-3/5">
-          <div className="text-cyan-100 flex flex-col items-center">
+        <div>
+          <div className="text-cyan-100 flex flex-col items-center px-5">
             <p className="pb-2 text-xl">
               {question.id} from {questionsData.length}
             </p>
@@ -40,10 +40,10 @@ export function QuestionsList({
             </div>
             <p className="pt-2 text-xl">Your score: {points}</p>
           </div>
-          <h2 className="text-3xl text-center font-bold p-5 text-cyan-100">
+          <h2 className="text-xl text-center font-bold p-5 text-cyan-100">
             {question.question}
           </h2>
-          <div className="grid grid-rows-4 gap-10">
+          <div className="grid grid-rows-4 gap-4 px-10">
             {answer.map((a) => (
               <button
                 onClick={() => {
@@ -53,11 +53,11 @@ export function QuestionsList({
                   }
                 }}
                 className={clsx(
-                  "text-cyan-100 text-xl py-10 px-20 hover:scale-105 text-center border-4 rounded-lg",
+                  "text-cyan-100 text-xl p-4 hover:scale-105 text-center border-4 rounded-lg",
                   "shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_",
                   a.answer_id === question.correct_option ? "#0f0" : "#f00",
                   "]",
-                  a.answer_id === userAnswer ? "translate-x-10" : "",
+                  a.answer_id === userAnswer ? "translate-x-4" : "",
                   hasAnswered
                     ? a.answer_id === question.correct_option
                       ? "border-green-500 bg-green-500 bg-opacity-25 text-green-400"
@@ -71,17 +71,17 @@ export function QuestionsList({
               </button>
             ))}
           </div>
-          <div className="flex justify-between w-full">
+          <div className="flex justify-between w-full pb-4 px-4">
             {!finishQuestions ? (
               <>
+                <Button onClick={() => dispatch({ type: "reset" })}>
+                  Reset
+                </Button>
                 <Button
                   onClick={() => dispatch({ type: "next" })}
                   disabled={!hasAnswered}
                 >
                   Next
-                </Button>
-                <Button onClick={() => dispatch({ type: "reset" })}>
-                  Reset
                 </Button>
               </>
             ) : (

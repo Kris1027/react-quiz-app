@@ -17,7 +17,6 @@
 - [ ] add extra polish language
 - [ ] build beautiful logo with beautiful font
 - [ ] build footer with useful links about react
-- [ ] notification after answer
 - [ ] build timer
 - [ ] work with responsive for desktops and mobiles
 - [ ] add 20 questions and 4 answers each question
