@@ -9,7 +9,7 @@
 - [x] live score
 - [x] style answers, colors depend on the correct or not correct answers
 - [x] style progress bar and change position
-- [ ] add color for score depends how close is to maximum
+- [x] add color for score depends how close is to maximum
 - [ ] add 20 questions and 4 answers each question
 - [ ] style app layout
 - [ ] add animation via framer-motion

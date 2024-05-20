@@ -10,6 +10,7 @@ export function QuestionsList({
   userAnswer,
   points,
   finish,
+  totalPoints,
 }) {
   const hasAnswered = userAnswer !== null;
 
@@ -91,7 +92,11 @@ export function QuestionsList({
           </div>
         </div>
       ) : (
-        <FinishQuiz points={points} dispatch={dispatch} />
+        <FinishQuiz
+          points={points}
+          dispatch={dispatch}
+          totalPoints={totalPoints}
+        />
       )}
     </>
   );

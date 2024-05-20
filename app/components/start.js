@@ -47,6 +47,10 @@ export function Start({ questionsData, answersData }) {
   const question = questionsData[currentQuestion - 1];
   const answer = answersData.filter((a) => a.question_id === currentQuestion);
 
+  const totalPoints = answersData
+    .map((a) => a.points)
+    .reduce((acc, curr) => acc + curr, 0);
+
   return (
     <div className="flex flex-col items-center">
       {!start && (
@@ -77,6 +81,7 @@ export function Start({ questionsData, answersData }) {
           userAnswer={userAnswer}
           points={points}
           finish={finish}
+          totalPoints={totalPoints}
         />
       )}
     </div>
