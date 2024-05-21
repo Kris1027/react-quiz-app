@@ -1,10 +1,10 @@
 "use client";
-import Image from "next/image";
 import { useReducer } from "react";
 import { QuestionsList } from "./questionsList";
-
-import ReactImg from "@/public/react.svg";
 import { Button } from "../ui/button";
+import { Logo } from "./logo";
+import LogoImage from "./logoImage";
+import StartDescription from "./startDescription";
 
 const initialState = {
   start: false,
@@ -52,22 +52,12 @@ export function Start({ questionsData, answersData }) {
     .reduce((acc, curr) => acc + curr, 0);
 
   return (
-    <div className="flex flex-col">
+    <>
       {!start && (
-        <div className="flex flex-col items-center justify-center text-center">
-          <a href="https://react.dev" target="_blank">
-            <Image
-              src={ReactImg}
-              alt="React logo"
-              className="animate-spin-slow"
-              width={300}
-              height={300}
-            />
-          </a>
-          <h2 className="text-xl text-cyan-100 pt-20">
-            Welcome in the quiz app where you can check your knowledge about
-            React!
-          </h2>
+        <div className="flex flex-col items-center justify-between text-center">
+          <Logo />
+          <LogoImage />
+          <StartDescription />
           <Button onClick={() => dispatch({ type: "start" })}>Start</Button>
         </div>
       )}
@@ -84,6 +74,6 @@ export function Start({ questionsData, answersData }) {
           totalPoints={totalPoints}
         />
       )}
-    </div>
+    </>
   );
 }

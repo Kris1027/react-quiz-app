@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Logo } from "./components/logo";
+import Wrapper from "./ui/wrapper";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,9 +10,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-cyan-950 lg:w-3/4 mx-auto">
-        <Logo />
-        {children}
+      <body>
+        <Wrapper>{children}</Wrapper>
       </body>
     </html>
   );
