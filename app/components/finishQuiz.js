@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Button } from "../ui/button";
-import FinishImg from "@/public/finish.svg";
+import FinishScore from "./finishScore";
+import FinishImage from "./finishImage";
 
 export function FinishQuiz({ points, dispatch, totalPoints }) {
   const good = points >= totalPoints * 0.8;
@@ -8,40 +8,16 @@ export function FinishQuiz({ points, dispatch, totalPoints }) {
   const bad = points < totalPoints * 0.5;
 
   return (
-    <div className="flex flex-col items-center w-full">
-      <h1 className="text-7xl font-extrabold text-cyan-100 text-center pb-10">
-        Finish!
-      </h1>
-      <div className="bounce-in-right">
-        <Image
-          src={FinishImg}
-          alt="finish flag"
-          className="flash"
-          width={300}
-          height={300}
-        />
-      </div>
-      <p className="text-3xl text-cyan-100 pt-4 text-center">
-        {good && (
-          <span className="text-green-500">
-            Perfect! You have earned <span className="font-bold">{points}</span>{" "}
-            points from <span className="font-bold">{totalPoints}</span> total!
-          </span>
-        )}
-        {medium && (
-          <span className="text-amber-400">
-            Not bad! You have earned <span className="font-bold">{points}</span>{" "}
-            points from <span className="font-bold">{totalPoints}</span> total!
-          </span>
-        )}
-        {bad && (
-          <span className="text-red-500">
-            You need to work more... You have earned only{" "}
-            <span className="font-bold">{points}</span> points from{" "}
-            <span className="font-bold">{totalPoints}</span> total!
-          </span>
-        )}
-      </p>
+    <div className="flex flex-col items-center">
+      <h1 className="text-4xl font-bold text-cyan-200 text-center">Finish!</h1>
+      <FinishImage />
+      <FinishScore
+        points={points}
+        totalPoints={totalPoints}
+        good={good}
+        medium={medium}
+        bad={bad}
+      />
       <Button onClick={() => dispatch({ type: "reset" })}>Start again</Button>
     </div>
   );
