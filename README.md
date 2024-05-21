@@ -25,9 +25,9 @@
 - [ ] style app layout
 - [ ] add animation via framer-motion
 - [ ] add extra polish language
-- [ ] build beautiful logo with beautiful font
+- [ ] build beautiful logo
 - [ ] build footer with useful links about react
 - [ ] build timer
-- [ ] work with responsive for desktops and mobiles
-- [ ] add 20 questions and 4 answers each question
+- [x] work with responsive for desktops and mobiles
+- [ ] add more questions and 4 answers each question
 - [ ] refactor after all things to do to have the most readable code
