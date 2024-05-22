@@ -1,5 +1,4 @@
 import "./globals.css";
-import { Logo } from "./components/logo";
 import Wrapper from "./ui/wrapper";
 
 export const metadata = {

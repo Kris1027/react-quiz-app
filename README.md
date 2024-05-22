@@ -22,11 +22,10 @@
 - [x] add color for score depends how close is to maximum
 - [x] in the finish screen add note depend on scores if its good or bad
 - [x] add styles for finish screen
+- [x] work with responsive for desktops and mobiles
 - [ ] add animation via framer-motion
-- [ ] add extra polish language
 - [ ] build beautiful logo
 - [ ] build footer with useful links about react
 - [ ] build timer
-- [x] work with responsive for desktops and mobiles
 - [ ] add more questions and 4 answers each question
 - [ ] refactor after all things to do to have the most readable code
