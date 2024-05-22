@@ -5,7 +5,8 @@ import FinishImage from "./finishImage";
 export function FinishQuiz({ points, dispatch, totalPoints }) {
   const good = points >= totalPoints * 0.8;
   const medium = points >= totalPoints * 0.5 && points < totalPoints * 0.8;
-  const bad = points < totalPoints * 0.5;
+  const bad = points < totalPoints * 0.5 && points > 0;
+  const none = points === 0;
 
   return (
     <div className="flex flex-col items-center">
@@ -17,6 +18,7 @@ export function FinishQuiz({ points, dispatch, totalPoints }) {
         good={good}
         medium={medium}
         bad={bad}
+        none={none}
       />
       <Button onClick={() => dispatch({ type: "reset" })}>Start again</Button>
     </div>
