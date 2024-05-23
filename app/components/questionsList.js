@@ -64,6 +64,7 @@ export function QuestionsList({
           points={points}
           dispatch={dispatch}
           totalPoints={totalPoints}
+          timeLeft={timeLeft}
         />
       )}
     </>

@@ -26,6 +26,7 @@
 - [ ] add animation via framer-motion
 - [ ] build beautiful logo
 - [ ] build footer with useful links about react
-- [ ] build timer
+- [x] build timer
+- [ ] style timer
 - [ ] add more questions and 4 answers each question
 - [ ] refactor after all things to do to have the most readable code

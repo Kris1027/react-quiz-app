@@ -11,5 +11,13 @@ export default function Timer({ timeLeft, dispatch }) {
     };
   }, [dispatch]);
 
-  return <div className="text-cyan-200 text-center">{timeLeft}</div>;
+  const formatTime = (clock) => {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft - minutes * 60;
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
+  return (
+    <div className="text-cyan-200 text-center">{formatTime(timeLeft)}</div>
+  );
 }
