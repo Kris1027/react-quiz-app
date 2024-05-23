@@ -2,6 +2,7 @@ import { FinishQuiz } from "./finishQuiz";
 import { Button } from "../ui/button";
 import Progress from "./progress";
 import Answers from "./answers";
+import Timer from "./timer";
 
 export function QuestionsList({
   questionsData,
@@ -12,6 +13,7 @@ export function QuestionsList({
   points,
   finish,
   totalPoints,
+  timeLeft,
 }) {
   const hasAnswered = userAnswer !== null;
 
@@ -26,6 +28,7 @@ export function QuestionsList({
             questionsData={questionsData}
             points={points}
           />
+          <Timer timeLeft={timeLeft} dispatch={dispatch} />
           <h2 className="text-xl text-center font-bold p-5 text-cyan-100">
             {question.question}
           </h2>

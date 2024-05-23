@@ -12,6 +12,7 @@ const initialState = {
   userAnswer: null,
   points: 0,
   finish: false,
+  timeLeft: 10,
 };
 
 const reducer = (state, action) => {
@@ -35,14 +36,24 @@ const reducer = (state, action) => {
       return initialState;
     case "finish":
       return { ...state, finish: true };
+    case "decrementTime":
+      if (state.timeLeft <= 0) {
+        return { ...state, finish: true };
+      }
+      return {
+        ...state,
+        timeLeft: state.timeLeft - 1,
+      };
     default:
       return state;
   }
 };
 
 export function Start({ questionsData, answersData }) {
-  const [{ start, currentQuestion, userAnswer, points, finish }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { start, currentQuestion, userAnswer, points, finish, timeLeft },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const question = questionsData[currentQuestion - 1];
   const answer = answersData.filter((a) => a.question_id === currentQuestion);
@@ -72,6 +83,7 @@ export function Start({ questionsData, answersData }) {
           points={points}
           finish={finish}
           totalPoints={totalPoints}
+          timeLeft={timeLeft}
         />
       )}
     </>
