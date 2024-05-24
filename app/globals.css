@@ -48,3 +48,11 @@
     transform: translateX(0);
   }
 }
+
+.poppins {
+  font-family: var(--poppins-font);
+}
+
+.tourney {
+  font-family: var(--tourney-font);
+}

@@ -24,7 +24,6 @@
 - [x] add styles for finish screen
 - [x] work with responsive for desktops and mobiles
 - [ ] add animation via framer-motion
-- [ ] build beautiful logo
 - [ ] build footer with useful links about react
 - [x] build timer
 - [ ] style timer
