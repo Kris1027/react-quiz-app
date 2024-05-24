@@ -9,7 +9,7 @@ export default function FinishScore({
   none,
 }) {
   return (
-    <p className="text-2xl text-cyan-100 text-center pb-10">
+    <p className="text-md lg:text-2xl text-cyan-100 text-center p-10">
       {good && (
         <span style={{ color: generateRedToGreenColor(points, totalPoints) }}>
           Perfect! You have earned{" "}

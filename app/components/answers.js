@@ -18,7 +18,7 @@ export default function Answers({
             }
           }}
           className={clsx(
-            "text-cyan-100 text-xl p-4 hover:scale-105 text-center border-4 rounded-lg",
+            "text-cyan-100 text-sm lg:text-xl p-4 hover:scale-105 text-center border-4 rounded-lg",
             "shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_",
             a.answer_id === question.correct_option ? "#0f0" : "#f00",
             "]",
