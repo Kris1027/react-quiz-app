@@ -1,10 +1,7 @@
 "use client";
 import { useReducer } from "react";
-import { QuestionsList } from "./questionsList";
-import { Button } from "../ui/button";
-import { Logo } from "./logo";
-import LogoImage from "./logoImage";
-import StartDescription from "./startDescription";
+import StartPage from "../views/startPage";
+import { QuizOn } from "../views/quizOnPage";
 
 const initialState = {
   start: false,
@@ -12,7 +9,7 @@ const initialState = {
   userAnswer: null,
   points: 0,
   finish: false,
-  timeLeft: 120,
+  timeLeft: 10,
 };
 
 const reducer = (state, action) => {
@@ -64,16 +61,9 @@ export function Start({ questionsData, answersData }) {
 
   return (
     <>
-      {!start && (
-        <div className="flex flex-col items-center justify-between text-center">
-          <Logo />
-          <LogoImage />
-          <StartDescription />
-          <Button onClick={() => dispatch({ type: "start" })}>Start</Button>
-        </div>
-      )}
+      {!start && <StartPage dispatch={dispatch} />}
       {start && (
-        <QuestionsList
+        <QuizOn
           questionsData={questionsData}
           question={question}
           answer={answer}

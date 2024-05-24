@@ -1,10 +1,10 @@
-import { FinishQuiz } from "./finishQuiz";
+import Answers from "../components/answers";
+import Progress from "../components/progress";
+import Timer from "../components/timer";
 import { Button } from "../ui/button";
-import Progress from "./progress";
-import Answers from "./answers";
-import Timer from "./timer";
+import { FinishPage } from "./finishPage";
 
-export function QuestionsList({
+export function QuizOn({
   questionsData,
   question,
   answer,
@@ -60,7 +60,7 @@ export function QuestionsList({
           </div>
         </div>
       ) : (
-        <FinishQuiz
+        <FinishPage
           points={points}
           dispatch={dispatch}
           totalPoints={totalPoints}

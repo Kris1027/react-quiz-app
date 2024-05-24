@@ -1,8 +1,10 @@
+import FinishImage from "../components/finishImage";
+import FinishScore from "../components/finishScore";
+import GameOver from "../components/gameOver";
 import { Button } from "../ui/button";
-import FinishScore from "./finishScore";
-import FinishImage from "./finishImage";
+import { generateRedToGreenColor } from "../utils/generateRedToGreenColor";
 
-export function FinishQuiz({ points, dispatch, totalPoints, timeLeft }) {
+export function FinishPage({ points, dispatch, totalPoints, timeLeft }) {
   const good = points >= totalPoints * 0.8;
   const medium = points >= totalPoints * 0.5 && points < totalPoints * 0.8;
   const bad = points < totalPoints * 0.5 && points > 0;
@@ -10,9 +12,7 @@ export function FinishQuiz({ points, dispatch, totalPoints, timeLeft }) {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-5xl text-cyan-200 text-center font-tourney">
-        {timeLeft === 0 ? "Game over your time is up" : "Finish!"}
-      </h1>
+      <GameOver points={points} totalPoints={totalPoints} timeLeft={timeLeft} />
       <FinishImage />
       <FinishScore
         points={points}
