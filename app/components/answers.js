@@ -13,7 +13,9 @@ export default function Answers({
       {answer.map((a) => (
         <motion.button
           initial={{ opacity: 0, x: "100vw" }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: a.answer_id === userAnswer ? 20 : 0 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 1 }}
           transition={{
             type: "spring",
             stiffness: 300,
@@ -27,11 +29,10 @@ export default function Answers({
             }
           }}
           className={clsx(
-            "text-cyan-100 text-sm lg:text-xl p-4 hover:scale-105 text-center border-4 rounded-lg",
+            "text-cyan-100 text-sm lg:text-xl p-4 text-center border-4 rounded-lg",
             "shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_",
             a.answer_id === question.correct_option ? "#0f0" : "#f00",
             "]",
-            a.answer_id === userAnswer ? "translate-x-4" : "",
             hasAnswered
               ? a.answer_id === question.correct_option
                 ? "border-green-500 bg-green-500 bg-opacity-25 text-green-400"
