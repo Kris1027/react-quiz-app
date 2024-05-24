@@ -12,7 +12,6 @@ export const metadata = {
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--poppins-font",
 });
 
 const tourney = Tourney({

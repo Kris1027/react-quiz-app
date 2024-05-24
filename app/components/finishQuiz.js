@@ -10,7 +10,7 @@ export function FinishQuiz({ points, dispatch, totalPoints, timeLeft }) {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-4xl text-cyan-200 text-center tourney">
+      <h1 className="text-5xl text-cyan-200 text-center font-tourney">
         {timeLeft === 0 ? "Game over your time is up" : "Finish!"}
       </h1>
       <FinishImage />

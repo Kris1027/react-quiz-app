@@ -6,7 +6,11 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        tourney: ["var(--tourney-font)"],
+      },
+    },
   },
   plugins: [],
 };
