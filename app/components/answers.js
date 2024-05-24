@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 export default function Answers({
   answer,
@@ -10,7 +11,15 @@ export default function Answers({
   return (
     <div className="grid grid-rows-4 gap-4 px-10">
       {answer.map((a) => (
-        <button
+        <motion.button
+          initial={{ opacity: 0, x: "100vw" }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            duration: 0.8,
+          }}
           onClick={() => {
             dispatch({ type: "newAnswer", payload: a.answer_id });
             if (a.answer_id === question.correct_option) {
@@ -29,11 +38,11 @@ export default function Answers({
                 : "border-red-500 bg-red-500 bg-opacity-25 text-red-400"
               : "border-sky-200 bg-sky-200 bg-opacity-25"
           )}
-          key={a.answer_id}
+          key={`${question.id}-${a.answer_id}`}
           disabled={hasAnswered}
         >
           {a.answer}
-        </button>
+        </motion.button>
       ))}
     </div>
   );

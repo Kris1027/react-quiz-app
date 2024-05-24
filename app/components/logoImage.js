@@ -3,7 +3,11 @@ import ReactImg from "@/public/react.svg";
 
 export default function LogoImage() {
   return (
-    <a className="py-10" href="https://react.dev" target="_blank">
+    <a
+      className="py-10 bounce-in-right"
+      href="https://react.dev"
+      target="_blank"
+    >
       <Image
         src={ReactImg}
         alt="React logo"
