@@ -24,7 +24,7 @@
 - [x] add styles for finish screen
 - [x] work with responsive for desktops and mobiles
 - [x] build timer
-- [ ] add animation via framer-motion
+- [x] add animation via framer-motion
 - [ ] build footer with useful links about react
 - [ ] add more questions and 4 answers each question
 - [ ] refactor after all things to do to have the most readable code

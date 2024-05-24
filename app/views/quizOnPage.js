@@ -3,6 +3,7 @@ import Progress from "../components/progress";
 import Timer from "../components/timer";
 import { Button } from "../ui/button";
 import { FinishPage } from "./finishPage";
+import { motion } from "framer-motion";
 
 export function QuizOn({
   questionsData,
@@ -22,7 +23,16 @@ export function QuizOn({
   return (
     <>
       {!finish ? (
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: "100vw" }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            duration: 0.8,
+          }}
+        >
           <Progress
             question={question}
             questionsData={questionsData}
@@ -58,7 +68,7 @@ export function QuizOn({
               </Button>
             )}
           </div>
-        </div>
+        </motion.div>
       ) : (
         <FinishPage
           points={points}

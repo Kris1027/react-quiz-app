@@ -2,7 +2,7 @@ import FinishImage from "../components/finishImage";
 import FinishScore from "../components/finishScore";
 import GameOver from "../components/gameOver";
 import { Button } from "../ui/button";
-import { generateRedToGreenColor } from "../utils/generateRedToGreenColor";
+import { motion } from "framer-motion";
 
 export function FinishPage({ points, dispatch, totalPoints, timeLeft }) {
   const good = points >= totalPoints * 0.8;
@@ -11,7 +11,17 @@ export function FinishPage({ points, dispatch, totalPoints, timeLeft }) {
   const none = points === 0;
 
   return (
-    <div className="flex flex-col items-center">
+    <motion.div
+      initial={{ opacity: 0, x: "100vw" }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+        duration: 0.8,
+      }}
+      className="flex flex-col items-center"
+    >
       <GameOver points={points} totalPoints={totalPoints} timeLeft={timeLeft} />
       <FinishImage />
       <FinishScore
@@ -23,6 +33,6 @@ export function FinishPage({ points, dispatch, totalPoints, timeLeft }) {
         none={none}
       />
       <Button onClick={() => dispatch({ type: "reset" })}>Start again</Button>
-    </div>
+    </motion.div>
   );
 }
