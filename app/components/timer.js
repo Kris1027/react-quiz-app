@@ -18,6 +18,8 @@ export default function Timer({ timeLeft, dispatch }) {
   };
 
   return (
-    <div className="text-cyan-200 text-center">{formatTime(timeLeft)}</div>
+    <div className="text-cyan-200 text-center text-2xl font-bold font-tourney">
+      {formatTime(timeLeft)}
+    </div>
   );
 }

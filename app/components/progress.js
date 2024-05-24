@@ -4,7 +4,8 @@ export default function Progress({ question, questionsData, points }) {
   return (
     <div className="text-cyan-200 flex flex-col items-center px-5">
       <p className="pb-2 text-xl">
-        {question.id} from {questionsData.length}
+        <span className="font-bold font-tourney">{question.id}</span> from{" "}
+        <span className="font-bold font-tourney">{questionsData.length}</span>
       </p>
       <div className="w-full h-6 bg-gray-700 rounded-full overflow-hidden shadow-sm shadow-gray-500">
         <div
@@ -24,7 +25,9 @@ export default function Progress({ question, questionsData, points }) {
           }}
         ></div>
       </div>
-      <p className="pt-2 text-xl">Your score: {points}</p>
+      <p className="pt-2 text-xl">
+        Your score: <span className="font-bold font-tourney">{points}</span>
+      </p>
     </div>
   );
 }

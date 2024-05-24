@@ -12,21 +12,23 @@ export default function FinishScore({
     <p className="text-2xl text-cyan-100 text-center pb-10">
       {good && (
         <span style={{ color: generateRedToGreenColor(points, totalPoints) }}>
-          Perfect! You have earned <span className="font-bold">{points}</span>{" "}
-          points from <span className="font-bold">{totalPoints}</span> total!
+          Perfect! You have earned{" "}
+          <span className="font-bold font-tourney">{points}</span> points from{" "}
+          <span className="font-bold font-tourney">{totalPoints}</span> total!
         </span>
       )}
       {medium && (
         <span style={{ color: generateRedToGreenColor(points, totalPoints) }}>
-          Not bad! You have earned <span className="font-bold">{points}</span>{" "}
-          points from <span className="font-bold">{totalPoints}</span> total!
+          Not bad! You have earned{" "}
+          <span className="font-bold font-tourney">{points}</span> points from{" "}
+          <span className="font-bold font-tourney">{totalPoints}</span> total!
         </span>
       )}
       {bad && (
         <span style={{ color: generateRedToGreenColor(points, totalPoints) }}>
           You need to work more... You have earned only{" "}
-          <span className="font-bold">{points}</span> points from{" "}
-          <span className="font-bold">{totalPoints}</span> total!
+          <span className="font-bold font-tourney">{points}</span> points from{" "}
+          <span className="font-bold font-tourney">{totalPoints}</span> total!
         </span>
       )}
       {none && (
