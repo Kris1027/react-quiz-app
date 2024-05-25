@@ -1,4 +1,4 @@
-import Answers from "../components/answers";
+import AnswersList from "../components/answersList";
 import Progress from "../components/progress";
 import Timer from "../components/timer";
 import { Button } from "../ui/button";
@@ -42,7 +42,7 @@ export function QuizOn({
           <h2 className="text-xl text-center font-bold p-5 text-cyan-100">
             {question.question}
           </h2>
-          <Answers
+          <AnswersList
             answer={answer}
             question={question}
             userAnswer={userAnswer}
