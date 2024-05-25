@@ -28,4 +28,5 @@
 - [x] add more questions and 4 answers each question
 - [ ] build footer with useful links about react
 - [ ] add difficult level option
+- [ ] add light/dark mode
 - [ ] refactor after all things to do to have the most readable code
