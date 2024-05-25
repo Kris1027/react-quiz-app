@@ -1,11 +1,12 @@
 import AnswersList from "../components/answersList";
 import Progress from "../components/progress";
+import QuestionItem from "../components/questionItem";
 import Timer from "../components/timer";
 import { Button } from "../ui/button";
 import { FinishPage } from "./finishPage";
 import { motion } from "framer-motion";
 
-export function QuizOn({
+export function QuizOnPage({
   questionsData,
   question,
   answer,
@@ -32,6 +33,7 @@ export function QuizOn({
             damping: 20,
             duration: 0.8,
           }}
+          className="w-full lg:w-1/2"
         >
           <Progress
             question={question}
@@ -39,9 +41,7 @@ export function QuizOn({
             points={points}
           />
           <Timer timeLeft={timeLeft} dispatch={dispatch} />
-          <h2 className="text-xl text-center font-bold p-5 text-cyan-100">
-            {question.question}
-          </h2>
+          <QuestionItem question={question} />
           <AnswersList
             answer={answer}
             question={question}

@@ -1,7 +1,7 @@
 "use client";
 import { useReducer } from "react";
 import StartPage from "../views/startPage";
-import { QuizOn } from "../views/quizOnPage";
+import { QuizOnPage } from "../views/quizOnPage";
 
 const initialState = {
   start: false,
@@ -63,7 +63,7 @@ export function Start({ questionsData, answersData }) {
     <>
       {!start && <StartPage dispatch={dispatch} />}
       {start && (
-        <QuizOn
+        <QuizOnPage
           questionsData={questionsData}
           question={question}
           answer={answer}

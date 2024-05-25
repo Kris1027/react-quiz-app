@@ -8,7 +8,7 @@ export default function AnswersList({
   dispatch,
 }) {
   return (
-    <div className="grid grid-rows-4 gap-4 px-10">
+    <div className="grid grid-rows-4 gap-4 px-8 lg:px-12">
       {answer.map((item) => (
         <AnswerItem
           item={item}
