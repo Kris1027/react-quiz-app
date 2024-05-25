@@ -12,8 +12,8 @@ export function FinishPage({ points, dispatch, totalPoints, timeLeft }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: "100vw" }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: "-100vw" }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         type: "spring",
         stiffness: 300,
