@@ -23,7 +23,7 @@ export default function StartPage({ dispatch, timeLeft }) {
       <Description>
         Welcome in the quiz app where you can check your knowledge about React!
       </Description>
-      <div className="flex flex-col gap-4 items-center">
+      <div className="flex flex-col gap-4 lg:gap-0 lg:flex-row lg:justify-between items-center w-full">
         <Description>Select Your Difficulty Level</Description>
         <DifficultLevel dispatch={dispatch} />
         <Button onClick={() => dispatch({ type: "start" })}>Start</Button>

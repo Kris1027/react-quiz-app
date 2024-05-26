@@ -2,7 +2,7 @@
 
 `live` : <https://www.quiz.kris1027.pl/>
 
-## Challenges Faced During the Project
+## Challenges Faced During the React Quiz App Project
 
 ### 1. Learning and Implementing Next.js with JavaScript
 
