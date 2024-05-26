@@ -1,9 +1,9 @@
 import { Button } from "../ui/button";
 import { Logo } from "../components/logo";
 import LogoImage from "../components/logoImage";
-import StartDescription from "../components/startDescription";
 import { motion } from "framer-motion";
 import DifficultLevel from "../components/DifficultLevel";
+import Description from "../ui/description";
 
 export default function StartPage({ dispatch, timeLeft }) {
   return (
@@ -20,11 +20,11 @@ export default function StartPage({ dispatch, timeLeft }) {
     >
       <Logo />
       <LogoImage />
-      <StartDescription>
+      <Description>
         Welcome in the quiz app where you can check your knowledge about React!
-      </StartDescription>
+      </Description>
       <div className="flex flex-col gap-4 items-center">
-        <StartDescription>Select Your Difficulty Level</StartDescription>
+        <Description>Select Your Difficulty Level</Description>
         <DifficultLevel dispatch={dispatch} />
         <Button onClick={() => dispatch({ type: "start" })}>Start</Button>
       </div>

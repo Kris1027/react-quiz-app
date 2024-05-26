@@ -2,6 +2,43 @@
 
 `live` : <https://www.quiz.kris1027.pl/>
 
+## Challenges Faced During the Project
+
+### 1. Learning and Implementing Next.js with JavaScript
+
+- Adapting to the structure and conventions of Next.js, leveraging React for building components.
+- Ensuring a smooth development experience with JavaScript.
+
+### 2. Integrating Framer Motion for Animations
+
+- Creating smooth, interactive animations to enhance user experience.
+- Ensuring performance optimization for complex animations.
+
+### 3. Styling with Tailwind CSS
+
+- Utilizing Tailwind CSS for fast, efficient, and responsive styling.
+- Ensuring a consistent and attractive design throughout the project.
+
+### 4. Database Management with better-sqlite3
+
+- Setting up better-sqlite3 to interact with an SQLite database.
+- Defining database schemas and managing migrations.
+- Overcoming challenges related to querying and retrieving data efficiently.
+
+### 5. Building Forms and Managing State with useReducer
+
+- Implementing user-friendly forms and managing complex state with useReducer.
+- Leveraging useReducer for better state management and more predictable state transitions.
+
+### 6. Adding Sound Effects
+
+- Incorporating sound effects to enhance the user experience and provide auditory feedback.
+
+### 7. Biggest Challenge: Utilizing useReducer for State Management
+
+- Understanding useReducer’s capabilities and best practices for state management.
+- Debugging and optimizing the use of useReducer to ensure state integrity and performance.
+
 ## Technologies:
 
 - JavaScript
@@ -26,6 +63,7 @@
 - [x] build timer
 - [x] add animation via framer-motion
 - [x] add more questions and 4 answers each question
-- [ ] add difficult level option
+- [x] add difficult level option
 - [ ] add sound effects
+- [ ] build context
 - [ ] refactor after all things to do to have the most readable code
