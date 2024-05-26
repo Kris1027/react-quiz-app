@@ -1,6 +1,9 @@
+import { useStateValue } from "../contexts/useReducer";
 import { generateRedToGreenColor } from "../utils/generateRedToGreenColor";
 
-export default function Progress({ question, questionsData, points }) {
+export default function Progress({ question, questionsData }) {
+  const { points } = useStateValue();
+
   return (
     <div className="text-[var(--primaryText)] flex flex-col items-center px-5">
       <p className="pb-2 text-xl">

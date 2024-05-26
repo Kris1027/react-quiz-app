@@ -1,62 +1,10 @@
 "use client";
-import { useReducer } from "react";
 import StartPage from "../views/startPage";
 import { QuizOnPage } from "../views/quizOnPage";
-
-const initialState = {
-  start: false,
-  currentQuestion: 1,
-  userAnswer: null,
-  points: 0,
-  finish: false,
-  timeLeft: 300,
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "start":
-      return { ...state, start: true };
-    case "next":
-      return {
-        ...state,
-        currentQuestion: state.currentQuestion + 1,
-        userAnswer: null,
-      };
-    case "newAnswer":
-      return {
-        ...state,
-        userAnswer: action.payload,
-      };
-    case "addPoints":
-      return { ...state, points: state.points + action.payload };
-    case "reset":
-      return initialState;
-    case "finish":
-      return { ...state, finish: true };
-    case "decrementTime":
-      if (state.timeLeft <= 0) {
-        return { ...state, finish: true };
-      }
-      return {
-        ...state,
-        timeLeft: state.timeLeft - 1,
-      };
-    case "changeTime":
-      return {
-        ...state,
-        timeLeft: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+import { useStateValue } from "../contexts/useReducer";
 
 export function Start({ questionsData, answersData }) {
-  const [
-    { start, currentQuestion, userAnswer, points, finish, timeLeft },
-    dispatch,
-  ] = useReducer(reducer, initialState);
-
+  const { start, currentQuestion } = useStateValue();
   const question = questionsData[currentQuestion - 1];
   const answer = answersData.filter((a) => a.question_id === currentQuestion);
 
@@ -66,19 +14,13 @@ export function Start({ questionsData, answersData }) {
 
   return (
     <>
-      {!start && <StartPage dispatch={dispatch} />}
+      {!start && <StartPage />}
       {start && (
         <QuizOnPage
-          questionsData={questionsData}
           question={question}
+          questionsData={questionsData}
           answer={answer}
-          currentQuestion={currentQuestion}
-          dispatch={dispatch}
-          userAnswer={userAnswer}
-          points={points}
-          finish={finish}
           totalPoints={totalPoints}
-          timeLeft={timeLeft}
         />
       )}
     </>

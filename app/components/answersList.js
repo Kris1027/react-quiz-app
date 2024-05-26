@@ -1,21 +1,13 @@
 import AnswerItem from "./answerItem";
 
-export default function AnswersList({
-  answer,
-  question,
-  userAnswer,
-  hasAnswered,
-  dispatch,
-}) {
+export default function AnswersList({ answer, question, hasAnswered }) {
   return (
     <div className="grid grid-rows-4 gap-4 px-8 lg:px-12">
       {answer.map((item) => (
         <AnswerItem
           item={item}
           question={question}
-          userAnswer={userAnswer}
           hasAnswered={hasAnswered}
-          dispatch={dispatch}
           key={`${question.id}-${item.answer_id}`}
         />
       ))}

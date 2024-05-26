@@ -1,13 +1,8 @@
+import { useStateValue } from "../contexts/useReducer";
 import Score from "./score";
 
-export default function FinishScore({
-  points,
-  totalPoints,
-  good,
-  medium,
-  bad,
-  none,
-}) {
+export default function FinishScore({ good, medium, bad, none }) {
+  const { points, totalPoints } = useStateValue();
   return (
     <p className="text-md lg:text-2xl text-[var(--primaryText)] text-center p-10">
       {good && (

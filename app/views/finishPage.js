@@ -1,10 +1,13 @@
 import FinishImage from "../components/finishImage";
 import FinishScore from "../components/finishScore";
 import GameOver from "../components/gameOver";
+import { useStateValue } from "../contexts/useReducer";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 
-export function FinishPage({ points, dispatch, totalPoints, timeLeft }) {
+export function FinishPage() {
+  const { points, totalPoints, dispatch } = useStateValue();
+
   const good = points >= totalPoints * 0.8;
   const medium = points >= totalPoints * 0.5 && points < totalPoints * 0.8;
   const bad = points < totalPoints * 0.5 && points > 0;
@@ -22,16 +25,9 @@ export function FinishPage({ points, dispatch, totalPoints, timeLeft }) {
       }}
       className="flex flex-col items-center"
     >
-      <GameOver points={points} totalPoints={totalPoints} timeLeft={timeLeft} />
+      <GameOver />
       <FinishImage />
-      <FinishScore
-        points={points}
-        totalPoints={totalPoints}
-        good={good}
-        medium={medium}
-        bad={bad}
-        none={none}
-      />
+      <FinishScore good={good} medium={medium} bad={bad} none={none} />
       <Button onClick={() => dispatch({ type: "reset" })}>Start again</Button>
     </motion.div>
   );

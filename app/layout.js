@@ -1,3 +1,4 @@
+import { StateProvider } from "./contexts/useReducer";
 import "./globals.css";
 import Wrapper from "./ui/wrapper";
 import { Poppins } from "next/font/google";
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.className} ${tourney.variable}`}>
-        <Wrapper>{children}</Wrapper>
+        <StateProvider>
+          <Wrapper>{children}</Wrapper>
+        </StateProvider>
       </body>
     </html>
   );

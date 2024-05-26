@@ -4,8 +4,11 @@ import LogoImage from "../components/logoImage";
 import { motion } from "framer-motion";
 import DifficultLevel from "../components/DifficultLevel";
 import Description from "../ui/description";
+import { useStateValue } from "../contexts/useReducer";
 
-export default function StartPage({ dispatch }) {
+export default function StartPage() {
+  const { dispatch } = useStateValue();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: "-100vh" }}
@@ -24,7 +27,7 @@ export default function StartPage({ dispatch }) {
         Welcome in the quiz app where you can check your knowledge about React!
       </Description>
       <div className="flex flex-col gap-4 lg:flex-row w-full justify-between items-center">
-        <DifficultLevel dispatch={dispatch} />
+        <DifficultLevel />
         <Button onClick={() => dispatch({ type: "start" })}>Start</Button>
       </div>
     </motion.div>

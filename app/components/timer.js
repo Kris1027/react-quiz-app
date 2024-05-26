@@ -1,7 +1,10 @@
 import clsx from "clsx";
 import { useEffect } from "react";
+import { useStateValue } from "../contexts/useReducer";
 
-export default function Timer({ timeLeft, dispatch }) {
+export default function Timer() {
+  const { timeLeft, dispatch } = useStateValue();
+
   useEffect(() => {
     const time = setInterval(() => {
       dispatch({ type: "decrementTime" });

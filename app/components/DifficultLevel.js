@@ -1,4 +1,7 @@
-export default function DifficultLevel({ dispatch }) {
+import { useStateValue } from "../contexts/useReducer";
+
+export default function DifficultLevel() {
+  const { dispatch } = useStateValue();
   return (
     <div className="flex gap-2 items-center flex-col lg:flex-row">
       <p className="text-[var(--primaryText)] text-lg">

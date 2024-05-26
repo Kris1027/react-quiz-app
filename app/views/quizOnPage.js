@@ -1,24 +1,16 @@
+"use client";
 import AnswersList from "../components/answersList";
 import Progress from "../components/progress";
 import QuestionItem from "../components/questionItem";
 import Timer from "../components/timer";
+import { useStateValue } from "../contexts/useReducer";
 import { Button } from "../ui/button";
 import { FinishPage } from "./finishPage";
 import { motion } from "framer-motion";
 
-export function QuizOnPage({
-  questionsData,
-  question,
-  answer,
-  dispatch,
-  userAnswer,
-  points,
-  finish,
-  totalPoints,
-  timeLeft,
-}) {
+export function QuizOnPage({ question, questionsData, answer }) {
+  const { finish, userAnswer, dispatch } = useStateValue();
   const hasAnswered = userAnswer !== null;
-
   const finishQuestions = questionsData.length === question.id && hasAnswered;
 
   return (
@@ -35,19 +27,13 @@ export function QuizOnPage({
           }}
           className="w-full lg:w-1/2"
         >
-          <Progress
-            question={question}
-            questionsData={questionsData}
-            points={points}
-          />
-          <Timer timeLeft={timeLeft} dispatch={dispatch} />
+          <Progress question={question} questionsData={questionsData} />
+          <Timer />
           <QuestionItem question={question} />
           <AnswersList
             answer={answer}
             question={question}
-            userAnswer={userAnswer}
             hasAnswered={hasAnswered}
-            dispatch={dispatch}
           />
           <div className="flex justify-between w-full pt-10 px-4">
             {!finishQuestions ? (
@@ -70,12 +56,7 @@ export function QuizOnPage({
           </div>
         </motion.div>
       ) : (
-        <FinishPage
-          points={points}
-          dispatch={dispatch}
-          totalPoints={totalPoints}
-          timeLeft={timeLeft}
-        />
+        <FinishPage />
       )}
     </>
   );
