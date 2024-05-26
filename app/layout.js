@@ -1,4 +1,3 @@
-import { Logo } from "./components/logo";
 import "./globals.css";
 import Wrapper from "./ui/wrapper";
 import { Poppins } from "next/font/google";

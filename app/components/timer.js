@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useEffect } from "react";
 
 export default function Timer({ timeLeft, dispatch }) {
@@ -18,7 +19,13 @@ export default function Timer({ timeLeft, dispatch }) {
   };
 
   return (
-    <div className="text-[var(--primaryText)] text-center text-2xl font-bold font-tourney">
+    <div
+      className={clsx(
+        "text-[var(--primaryText)] text-center text-2xl font-bold font-tourney",
+        timeLeft < 120 && timeLeft > 60 && "text-yellow-500",
+        timeLeft <= 60 && "text-red-500"
+      )}
+    >
       {formatTime(timeLeft)}
     </div>
   );
