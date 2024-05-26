@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 import { FinishPage } from "./finishPage";
 import { motion } from "framer-motion";
 
-export function QuizOnPage({ question, questionsData, answer }) {
+export function QuizOnPage({ question, questionsData, answer, totalPoints }) {
   const { finish, userAnswer, dispatch } = useStateValue();
   const hasAnswered = userAnswer !== null;
   const finishQuestions = questionsData.length === question.id && hasAnswered;
@@ -56,7 +56,7 @@ export function QuizOnPage({ question, questionsData, answer }) {
           </div>
         </motion.div>
       ) : (
-        <FinishPage />
+        <FinishPage totalPoints={totalPoints} />
       )}
     </>
   );

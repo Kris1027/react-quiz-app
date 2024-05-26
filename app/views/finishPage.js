@@ -5,8 +5,8 @@ import { useStateValue } from "../contexts/useReducer";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 
-export function FinishPage() {
-  const { points, totalPoints, dispatch } = useStateValue();
+export function FinishPage({ totalPoints }) {
+  const { points, dispatch } = useStateValue();
 
   const good = points >= totalPoints * 0.8;
   const medium = points >= totalPoints * 0.5 && points < totalPoints * 0.8;
