@@ -1,4 +1,4 @@
-import { generateRedToGreenColor } from "../utils/generateRedToGreenColor";
+import Score from "./score";
 
 export default function FinishScore({
   points,
@@ -9,32 +9,26 @@ export default function FinishScore({
   none,
 }) {
   return (
-    <p className="text-md lg:text-2xl text-cyan-100 text-center p-10">
+    <p className="text-md lg:text-2xl text-[var(--primaryText)] text-center p-10">
       {good && (
-        <span style={{ color: generateRedToGreenColor(points, totalPoints) }}>
-          Perfect! You have earned{" "}
-          <span className="font-bold font-tourney">{points}</span> points from{" "}
-          <span className="font-bold font-tourney">{totalPoints}</span> total!
-        </span>
+        <Score points={points} totalPoints={totalPoints}>
+          Perfect! You have earned
+        </Score>
       )}
       {medium && (
-        <span style={{ color: generateRedToGreenColor(points, totalPoints) }}>
-          Not bad! You have earned{" "}
-          <span className="font-bold font-tourney">{points}</span> points from{" "}
-          <span className="font-bold font-tourney">{totalPoints}</span> total!
-        </span>
+        <Score points={points} totalPoints={totalPoints}>
+          Not bad! You have earned
+        </Score>
       )}
       {bad && (
-        <span style={{ color: generateRedToGreenColor(points, totalPoints) }}>
-          You need to work more... You have earned only{" "}
-          <span className="font-bold font-tourney">{points}</span> points from{" "}
-          <span className="font-bold font-tourney">{totalPoints}</span> total!
-        </span>
+        <Score points={points} totalPoints={totalPoints}>
+          You need to learn more... You have earned only
+        </Score>
       )}
       {none && (
-        <span style={{ color: generateRedToGreenColor(points, totalPoints) }}>
+        <Score points={points} totalPoints={totalPoints}>
           What are you doing? All question are wrong...
-        </span>
+        </Score>
       )}
     </p>
   );

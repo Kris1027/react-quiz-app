@@ -9,7 +9,7 @@ const initialState = {
   userAnswer: null,
   points: 0,
   finish: false,
-  timeLeft: 300,
+  timeLeft: 5,
 };
 
 const reducer = (state, action) => {

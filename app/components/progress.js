@@ -2,12 +2,12 @@ import { generateRedToGreenColor } from "../utils/generateRedToGreenColor";
 
 export default function Progress({ question, questionsData, points }) {
   return (
-    <div className="text-cyan-200 flex flex-col items-center px-5">
+    <div className="text-[var(--primaryText)] flex flex-col items-center px-5">
       <p className="pb-2 text-xl">
         <span className="font-bold font-tourney">{question.id}</span> from{" "}
         <span className="font-bold font-tourney">{questionsData.length}</span>
       </p>
-      <div className="w-full h-6 bg-gray-700 rounded-full overflow-hidden shadow-sm shadow-gray-500">
+      <div className="w-full h-6 bg-[var(--secondaryBackground)] rounded-full overflow-hidden shadow-sm shadow-gray-500">
         <div
           className="h-full transition-colors duration-1000 ease-in-out"
           style={{
@@ -19,7 +19,7 @@ export default function Progress({ question, questionsData, points }) {
           }}
         ></div>
         <div
-          className="h-full bg-cyan-200"
+          className="h-full bg-[var(--primaryText)]"
           style={{
             width: `${100 - (question.id / questionsData.length) * 100}%`,
           }}

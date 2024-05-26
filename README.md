@@ -26,7 +26,7 @@
 - [x] build timer
 - [x] add animation via framer-motion
 - [x] add more questions and 4 answers each question
-- [ ] build footer with useful links about react
 - [ ] add difficult level option
 - [ ] add light/dark mode
+- [ ] add sound effects
 - [ ] refactor after all things to do to have the most readable code

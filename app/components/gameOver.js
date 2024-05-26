@@ -2,7 +2,7 @@ import { generateRedToGreenColor } from "../utils/generateRedToGreenColor";
 
 export default function GameOver({ points, totalPoints, timeLeft }) {
   return (
-    <h1 className="text-5xl text-cyan-200 text-center font-tourney">
+    <h1 className="text-5xl text-[var(--primaryText)] text-center font-tourney">
       {timeLeft === 0 ? (
         <>
           <p>Game Over</p>

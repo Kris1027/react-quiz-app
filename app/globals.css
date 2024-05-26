@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primaryText: #67e8f9;
+  --primaryBackground: #082f49;
+  --secondaryBackground: #0c4a6e;
+}
+
 .animate-spin-slow {
   animation: spin 15s linear infinite;
 }
