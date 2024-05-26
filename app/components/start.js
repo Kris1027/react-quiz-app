@@ -41,6 +41,11 @@ const reducer = (state, action) => {
         ...state,
         timeLeft: state.timeLeft - 1,
       };
+    case "changeTime":
+      return {
+        ...state,
+        timeLeft: action.payload,
+      };
     default:
       return state;
   }
