@@ -2,8 +2,8 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useStateValue } from "../contexts/useReducer";
 
-export default function AnswerItem({ item, question, hasAnswered }) {
-  const { userAnswer, dispatch } = useStateValue();
+export default function AnswerItem({ item, question }) {
+  const { userAnswer, dispatch, hasAnswered } = useStateValue();
 
   return (
     <motion.button

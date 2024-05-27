@@ -8,6 +8,7 @@ const initialState = {
   points: 0,
   finish: false,
   timeLeft: 300,
+  hasAnswered: false,
 };
 
 const StateContext = createContext(initialState);
@@ -21,11 +22,13 @@ const reducer = (state, action) => {
         ...state,
         currentQuestion: state.currentQuestion + 1,
         userAnswer: null,
+        hasAnswered: false,
       };
     case "newAnswer":
       return {
         ...state,
         userAnswer: action.payload,
+        hasAnswered: true,
       };
     case "addPoints":
       return { ...state, points: state.points + action.payload };

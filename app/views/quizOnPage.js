@@ -13,9 +13,7 @@ export default function QuizOnPage({
   totalPoints,
   questionsData,
 }) {
-  const { finish, dispatch, userAnswer } = useStateValue();
-
-  const hasAnswered = userAnswer !== null;
+  const { finish, dispatch, hasAnswered } = useStateValue();
 
   const finishQuestions = questionsData.length === question.id && hasAnswered;
 
@@ -36,11 +34,7 @@ export default function QuizOnPage({
           <Progress question={question} questionsData={questionsData} />
           <Timer />
           <QuestionItem question={question} />
-          <AnswersList
-            answer={answer}
-            question={question}
-            hasAnswered={hasAnswered}
-          />
+          <AnswersList answer={answer} question={question} />
           <div className="flex justify-between w-full pt-10 px-4">
             {!finishQuestions ? (
               <>
