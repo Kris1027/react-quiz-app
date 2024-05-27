@@ -6,8 +6,9 @@ export default function AnswersList({ answer, question, hasAnswered }) {
       {answer.map((item) => (
         <AnswerItem
           item={item}
-          question={question}
           hasAnswered={hasAnswered}
+          answer={answer}
+          question={question}
           key={`${question.id}-${item.answer_id}`}
         />
       ))}

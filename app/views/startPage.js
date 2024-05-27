@@ -1,10 +1,11 @@
-import { Button } from "../ui/button";
+"use client";
+import { useStateValue } from "../contexts/useReducer";
+import { motion } from "framer-motion";
 import { Logo } from "../components/logo";
 import LogoImage from "../components/logoImage";
-import { motion } from "framer-motion";
 import DifficultLevel from "../components/DifficultLevel";
 import Description from "../ui/description";
-import { useStateValue } from "../contexts/useReducer";
+import { Button } from "../ui/button";
 
 export default function StartPage() {
   const { dispatch } = useStateValue();

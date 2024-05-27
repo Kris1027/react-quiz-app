@@ -4,6 +4,7 @@ import { useStateValue } from "../contexts/useReducer";
 
 export default function AnswerItem({ item, question, hasAnswered }) {
   const { userAnswer, dispatch } = useStateValue();
+
   return (
     <motion.button
       initial={{ opacity: 0, x: "100vw" }}

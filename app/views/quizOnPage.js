@@ -1,16 +1,22 @@
-"use client";
+import { useStateValue } from "../contexts/useReducer";
+import { motion } from "framer-motion";
+import { FinishPage } from "./finishPage";
 import AnswersList from "../components/answersList";
 import Progress from "../components/progress";
 import QuestionItem from "../components/questionItem";
 import Timer from "../components/timer";
-import { useStateValue } from "../contexts/useReducer";
 import { Button } from "../ui/button";
-import { FinishPage } from "./finishPage";
-import { motion } from "framer-motion";
 
-export function QuizOnPage({ question, questionsData, answer, totalPoints }) {
-  const { finish, userAnswer, dispatch } = useStateValue();
+export default function QuizOnPage({
+  question,
+  answer,
+  totalPoints,
+  questionsData,
+}) {
+  const { finish, dispatch, userAnswer } = useStateValue();
+
   const hasAnswered = userAnswer !== null;
+
   const finishQuestions = questionsData.length === question.id && hasAnswered;
 
   return (

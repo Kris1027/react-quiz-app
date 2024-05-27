@@ -25,9 +25,15 @@ export function FinishPage({ totalPoints }) {
       }}
       className="flex flex-col items-center"
     >
-      <GameOver />
+      <GameOver totalPoints={totalPoints} />
       <FinishImage />
-      <FinishScore good={good} medium={medium} bad={bad} none={none} />
+      <FinishScore
+        good={good}
+        medium={medium}
+        bad={bad}
+        none={none}
+        totalPoints={totalPoints}
+      />
       <Button onClick={() => dispatch({ type: "reset" })}>Start again</Button>
     </motion.div>
   );

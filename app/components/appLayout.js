@@ -1,10 +1,12 @@
 "use client";
-import StartPage from "../views/startPage";
-import { QuizOnPage } from "../views/quizOnPage";
-import { useStateValue } from "../contexts/useReducer";
 
-export function Start({ questionsData, answersData }) {
+import { useStateValue } from "../contexts/useReducer";
+import QuizOnPage from "../views/quizOnPage";
+import StartPage from "../views/startPage";
+
+export default function AppLayout({ questionsData, answersData }) {
   const { start, currentQuestion } = useStateValue();
+
   const question = questionsData[currentQuestion - 1];
   const answer = answersData.filter((a) => a.question_id === currentQuestion);
 
@@ -18,9 +20,9 @@ export function Start({ questionsData, answersData }) {
       {start && (
         <QuizOnPage
           question={question}
-          questionsData={questionsData}
           answer={answer}
           totalPoints={totalPoints}
+          questionsData={questionsData}
         />
       )}
     </>
