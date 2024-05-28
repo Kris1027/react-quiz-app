@@ -16,6 +16,7 @@ const StateContext = createContext(initialState);
 const reducer = (state, action) => {
   switch (action.type) {
     case "start":
+      document.getElementById("start-sound").play();
       return { ...state, start: true };
     case "next":
       return {
@@ -65,6 +66,7 @@ export const StateProvider = ({ children }) => {
       }}
     >
       {children}
+      <audio id="start-sound" src="/start.mp3" />
     </StateContext.Provider>
   );
 };

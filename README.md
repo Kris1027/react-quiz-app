@@ -65,5 +65,5 @@
 - [x] add more questions and 4 answers each question
 - [x] add difficult level option
 - [ ] add sound effects
-- [ ] build context
+- [x] build context
 - [ ] refactor after all things to do to have the most readable code
