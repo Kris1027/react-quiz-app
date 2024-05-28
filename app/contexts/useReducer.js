@@ -36,9 +36,11 @@ const reducer = (state, action) => {
     case "reset":
       return initialState;
     case "finish":
+      document.getElementById("finish-sound").play();
       return { ...state, finish: true };
     case "decrementTime":
       if (state.timeLeft <= 0) {
+        document.getElementById("finish-sound").play();
         return { ...state, finish: true };
       }
       return {
@@ -67,6 +69,7 @@ export const StateProvider = ({ children }) => {
     >
       {children}
       <audio id="start-sound" src="/start.mp3" />
+      <audio id="finish-sound" src="/finish.mp3" />
     </StateContext.Provider>
   );
 };
