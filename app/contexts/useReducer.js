@@ -9,7 +9,7 @@ const initialState = {
   finish: false,
   timeLeft: 300,
   hasAnswered: false,
-  music: true,
+  music: false,
 };
 
 const StateContext = createContext(initialState);
@@ -41,7 +41,8 @@ const reducer = (state, action) => {
     case "addPoints":
       return { ...state, points: state.points + action.payload };
     case "reset":
-      return initialState;
+      return { ...initialState, music: state.music };
+
     case "finish":
       if (state.music) {
         document.getElementById("finish-sound").play();
