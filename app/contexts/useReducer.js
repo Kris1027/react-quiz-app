@@ -16,6 +16,8 @@ const StateContext = createContext(initialState);
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "toggleMusic":
+      return { ...state, music: !state.music };
     case "start":
       if (state.music) {
         document.getElementById("start-sound").play();

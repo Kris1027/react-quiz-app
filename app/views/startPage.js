@@ -6,6 +6,7 @@ import LogoImage from "../components/logoImage";
 import DifficultLevel from "../components/DifficultLevel";
 import Description from "../ui/description";
 import { Button } from "../ui/button";
+import SoundSwitcher from "../components/soundSwitcher";
 
 export default function StartPage() {
   const { dispatch } = useStateValue();
@@ -28,6 +29,7 @@ export default function StartPage() {
         Welcome in the quiz app where you can check your knowledge about React!
       </Description>
       <div className="flex flex-col gap-4 lg:flex-row w-full justify-between items-center">
+        <SoundSwitcher />
         <DifficultLevel />
         <Button onClick={() => dispatch({ type: "start" })}>Start</Button>
       </div>
