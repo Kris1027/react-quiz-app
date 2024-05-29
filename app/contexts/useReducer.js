@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const initialState = {
   start: false,
@@ -9,6 +9,7 @@ const initialState = {
   finish: false,
   timeLeft: 300,
   hasAnswered: false,
+  music: true,
 };
 
 const StateContext = createContext(initialState);
@@ -16,7 +17,11 @@ const StateContext = createContext(initialState);
 const reducer = (state, action) => {
   switch (action.type) {
     case "start":
-      document.getElementById("start-sound").play();
+      if (state.music) {
+        document.getElementById("start-sound").play();
+      } else {
+        document.getElementById("start-sound").pause();
+      }
       return { ...state, start: true };
     case "next":
       return {
@@ -36,11 +41,19 @@ const reducer = (state, action) => {
     case "reset":
       return initialState;
     case "finish":
-      document.getElementById("finish-sound").play();
+      if (state.music) {
+        document.getElementById("finish-sound").play();
+      } else {
+        document.getElementById("finish-sound").pause();
+      }
       return { ...state, finish: true };
     case "decrementTime":
       if (state.timeLeft <= 0) {
-        document.getElementById("finish-sound").play();
+        if (state.music) {
+          document.getElementById("finish-sound").play();
+        } else {
+          document.getElementById("finish-sound").pause();
+        }
         return { ...state, finish: true };
       }
       return {
@@ -59,6 +72,15 @@ const reducer = (state, action) => {
 
 export const StateProvider = ({ children }) => {
   const [{ ...state }, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const musicSound = document.getElementById("music-sound");
+    if (state.music) {
+      musicSound.play();
+    } else {
+      musicSound.pause();
+    }
+  }, [state.music]);
 
   return (
     <StateContext.Provider

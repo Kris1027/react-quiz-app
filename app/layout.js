@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.className} ${tourney.variable}`}>
+        <audio id="music-sound" src="/music.mp3" loop />
         <StateProvider>
           <Wrapper>{children}</Wrapper>
         </StateProvider>
