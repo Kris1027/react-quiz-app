@@ -21,8 +21,6 @@ const reducer = (state, action) => {
     case "start":
       if (state.music) {
         document.getElementById("start-sound").play();
-      } else {
-        document.getElementById("start-sound").pause();
       }
       return { ...state, start: true };
     case "next":
@@ -46,17 +44,11 @@ const reducer = (state, action) => {
     case "finish":
       if (state.music) {
         document.getElementById("finish-sound").play();
-      } else {
-        document.getElementById("finish-sound").pause();
       }
       return { ...state, finish: true };
     case "decrementTime":
-      if (state.timeLeft <= 0) {
-        if (state.music) {
-          document.getElementById("finish-sound").play();
-        } else {
-          document.getElementById("finish-sound").pause();
-        }
+      if (state.timeLeft <= 0 && state.music) {
+        document.getElementById("finish-sound").play();
         return { ...state, finish: true };
       }
       return {
