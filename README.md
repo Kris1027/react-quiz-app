@@ -66,4 +66,3 @@
 - [x] add difficult level option
 - [x] add sound effects
 - [x] build context
-- [ ] refactor after all things to do to have the most readable code

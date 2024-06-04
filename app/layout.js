@@ -7,6 +7,7 @@ import { Tourney } from "next/font/google";
 export const metadata = {
   title: "React Quiz App",
   description: "Check your knowledge about React!",
+  icon: [{ rel: "icon", url: "./favicon.ico" }],
 };
 
 const poppins = Poppins({
